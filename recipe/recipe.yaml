@@ -1,0 +1,45 @@
+schema_version: 1
+
+context:
+  name: unyts
+  version: "1.0.1"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/unyts-${{ version }}.tar.gz
+  sha256: b2f202bbcdccc58d5fea3469dddd93acd9a5d30e5f0ff53c27837d976e622892
+
+build:
+  number: 2
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools >=61.0
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - stringthings
+    - cloudpickle
+
+tests:
+  - python:
+      imports:
+        - unyts
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: an unit converter based on graph network and classes to operate with units.
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/ayaranitram/unyts
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
