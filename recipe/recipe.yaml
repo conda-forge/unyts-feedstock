@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: unyts
-  version: "1.0.2"
+  version: "1.0.5"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/unyts-${{ version }}.tar.gz
-  sha256: 38194ae1d5a25d77016f8924453e029e6643178c961d918805a2f6b065bf37db
+  sha256: dfc66ad619882b4c6847cc021c7533ccf55b94b35ce1d7c820aaf133139b04c7
 
 build:
   number: 0
